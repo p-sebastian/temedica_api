@@ -1,0 +1,53 @@
+{
+  "name": "temedica_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastian Penafiel Torres",
+  "license": "MIT",
+  "scripts": {
+    "clear": "rimraf dist",
+    "build": "yarn clear && tsc",
+    "start": "yarn start:prod",
+    "start:dev": "ts-node -r ./src/index.ts",
+    "start:prod": "node -r dist/index.js",
+    "run:prod": "pm2 start dist/index.js",
+    "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev"
+  },
+  "dependencies": {
+    "@marblejs/core": "^4.0.3",
+    "@marblejs/http": "^4.0.3",
+    "@marblejs/middleware-body": "^4.0.3",
+    "@marblejs/middleware-io": "^4.0.3",
+    "@marblejs/middleware-logger": "^4.0.3",
+    "fp-ts": "^2.11.9",
+    "fuse.js": "^6.5.3",
+    "rxjs": "^7.5.5",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "chalk": "^5.0.1",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "import-sort-style-module": "^6.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1",
+    "prettier-plugin-import-sort": "^0.0.7",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0"
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "parser": "typescript",
+      "style": "module"
+    }
+  }
+}
