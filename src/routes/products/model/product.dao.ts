@@ -16,6 +16,6 @@ const fuse = new Fuse(data.drugs as TProduct[], {
 const find = (body: TProductGet) => {
   const {limit = 10, q, skip = 0} = body
   const found = !q ? data.drugs : fuse.search(q).map(x => x.item)
-
-  return found.slice(skip, skip + limit)
+  const obj = {products: found.slice(skip, skip + limit), count: found.length}
+  return obj
 }

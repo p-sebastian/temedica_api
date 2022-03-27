@@ -13,7 +13,7 @@ export const getProductsEffect$ = r.pipe(
       requestValidator$({body: ProductValidator.get}),
       map(({body}) => body),
       mergeMap(ProductDao.search),
-      map(products => ({body: {data: products}})),
+      map(body => ({body: {data: body}})),
     ),
   ),
 )
